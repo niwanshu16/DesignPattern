@@ -1,0 +1,23 @@
+package NotifyMeObserver;
+
+public class User1 implements Observer {
+
+    Products products;
+    int stock=0;
+    InformationVia informationVia;
+
+    public User1(Products products, InformationVia informationVia) {
+        this.informationVia = informationVia;
+        this.products = products;
+        products.registerObserver(this);
+    }
+
+    public void update() {
+        stock = products.getStock();
+        display();
+    }
+
+    public void display() {
+        System.out.println( products.getDescription() + " User1 Stock Added " + products.getStock() + " Inform via " + informationVia.getDescription());
+    }
+}
