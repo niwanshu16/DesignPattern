@@ -17,6 +17,7 @@ public class Test {
         PhoneObserver phoneObserver = new PhoneObserver(observable, user1);
         PhoneObserver phoneObserver2 = new PhoneObserver(observable, user2);
         PhoneObserver phoneObserver3 = new PhoneObserver(observable, user3);
+        
         phoneObserver3 = new PhoneObserver(observable2, user3);
         emailObserver2 = new EmailObserver(observable2, user1);
 
