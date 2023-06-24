@@ -2,12 +2,9 @@ package DesignPattern.DecoratorPattern.Shipping;
 
 import DesignPattern.DecoratorPattern.Shipping.ShippingDecorator.GiftWrapping;
 import DesignPattern.DecoratorPattern.Shipping.ShippingDecorator.InsuranceDecorator;
-import DesignPattern.DecoratorPattern.Shipping.ShippingDecorator.InsuranceStrategy.StandardInsurance;
 import DesignPattern.DecoratorPattern.Shipping.ShippingDecorator.InsuranceStrategy.ZeroDepthInsurance;
 import DesignPattern.DecoratorPattern.Shipping.ShippingStrategy.ExpressShipping;
-import DesignPattern.DecoratorPattern.Shipping.ShippingStrategy.FreeShipping;
 import DesignPattern.DecoratorPattern.Shipping.ShippingStrategy.Shipping;
-import DesignPattern.DecoratorPattern.Shipping.ShippingStrategy.StandardShipping;
 
 public class Test {
     
