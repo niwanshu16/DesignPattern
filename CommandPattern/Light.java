@@ -1,5 +1,6 @@
 package DesignPattern.CommandPattern;
 
+//Receiver
 public class Light {
     
     public void on() {

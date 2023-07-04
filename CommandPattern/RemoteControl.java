@@ -1,14 +1,32 @@
 package DesignPattern.CommandPattern;
 
+//Invoker
 public class RemoteControl {
     
-    Command slot;
+    Command onCommands[];
+    Command offCommands[];
 
-    public void setCommand(Command command) {
-        slot = command;
+    public RemoteControl() {
+        onCommands = new Command[7];
+        offCommands = new Command[7];
+
+        for(int i=0;i<7;i++) {
+            onCommands[i] = new NoCommand();
+            offCommands[i] = new NoCommand();
+        }
     }
 
-    public void buttonWasPressed() {
-        slot.execute();
+    public void setCommand(int slot, Command onCommand, Command offCommand) {
+        onCommands[slot] = onCommand;
+        offCommands[slot] = offCommand;
     }
+
+    public void onButtonWasPressed(int slot) {
+        onCommands[slot].execute();
+    }
+
+    public void offButtonWasPressed(int slot) {
+        offCommands[slot].execute();
+    }
+
 }

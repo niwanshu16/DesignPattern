@@ -1,5 +1,6 @@
 package DesignPattern.CommandPattern;
 
+//Receiver
 public class GarageDoor {
     
     public void on() {
