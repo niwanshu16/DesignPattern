@@ -11,4 +11,8 @@ public class GarageDoorOffCommand implements Command {
     public void execute() {
         garageDoor.off();
     }
+
+    public void undo() {
+        garageDoor.on();
+    }
 }

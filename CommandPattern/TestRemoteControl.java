@@ -25,9 +25,12 @@ public class TestRemoteControl {
         remote.setCommand(1, lightOnCommand, lightOffCommand);
         remote.setCommand(2, stereoOnWithCDCommand, stereoOffWithCommand);
 
-        for(int i=0;i<7;i++) {
+        for(int i=0;i<3;i++) {
             remote.onButtonWasPressed(i);
             remote.offButtonWasPressed(i);
         }
+        
+        System.out.println("UNDO BUTTON");
+        remote.undoButtonWasPressed();
     }
 }
