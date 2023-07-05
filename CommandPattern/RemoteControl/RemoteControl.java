@@ -1,4 +1,4 @@
-package DesignPattern.CommandPattern;
+package DesignPattern.CommandPattern.RemoteControl;
 
 //Invoker
 public class RemoteControl {

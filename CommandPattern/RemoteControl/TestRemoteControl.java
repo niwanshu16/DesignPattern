@@ -1,4 +1,4 @@
-package DesignPattern.CommandPattern;
+package DesignPattern.CommandPattern.RemoteControl;
 
 //Client
 public class TestRemoteControl {
@@ -17,7 +17,6 @@ public class TestRemoteControl {
 
         StereoOnWithCDCommand stereoOnWithCDCommand = new StereoOnWithCDCommand(stereo);
         StereoOffWithCommand stereoOffWithCommand = new StereoOffWithCommand(stereo);
-
 
         RemoteControl remote = new RemoteControl();
         

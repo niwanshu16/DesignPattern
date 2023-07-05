@@ -1,4 +1,4 @@
-package DesignPattern.CommandPattern;
+package DesignPattern.CommandPattern.RemoteControl;
 
 public class NoCommand implements Command {
     

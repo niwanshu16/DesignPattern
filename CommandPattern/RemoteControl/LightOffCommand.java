@@ -1,4 +1,4 @@
-package DesignPattern.CommandPattern;
+package DesignPattern.CommandPattern.RemoteControl;
 
 //Concrete Command
 public class LightOffCommand implements Command {
