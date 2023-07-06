@@ -1,4 +1,6 @@
-package DesignPattern.AdapterPattern;
+package DesignPattern.AdapterPattern.DuckTurkey;
+
+import DesignPattern.TurkeyAdapter;
 
 public class TestDrive {
     

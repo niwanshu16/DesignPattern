@@ -1,4 +1,4 @@
-package DesignPattern.AdapterPattern;
+package DesignPattern.AdapterPattern.DuckTurkey;
 
 public class WildTurkey implements Turkey {
     
@@ -9,5 +9,5 @@ public class WildTurkey implements Turkey {
     public void flying() {
         System.out.println("WildTurkey flying");
     }
-    
+
 }

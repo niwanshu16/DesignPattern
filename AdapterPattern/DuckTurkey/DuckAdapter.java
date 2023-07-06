@@ -1,4 +1,4 @@
-package DesignPattern.AdapterPattern;
+package DesignPattern.AdapterPattern.DuckTurkey;
 
 //Adapter
 // Turkey is target interface
