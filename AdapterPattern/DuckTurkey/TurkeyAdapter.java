@@ -1,7 +1,4 @@
-package DesignPattern;
-
-import DesignPattern.AdapterPattern.DuckTurkey.Duck;
-import DesignPattern.AdapterPattern.DuckTurkey.Turkey;
+package DesignPattern.AdapterPattern.DuckTurkey;
 
 //DUck is target Interface
 public class TurkeyAdapter implements Duck {

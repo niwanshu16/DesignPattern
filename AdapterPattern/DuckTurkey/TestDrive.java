@@ -1,7 +1,5 @@
 package DesignPattern.AdapterPattern.DuckTurkey;
 
-import DesignPattern.TurkeyAdapter;
-
 public class TestDrive {
     
     public static void main(String []args) {
