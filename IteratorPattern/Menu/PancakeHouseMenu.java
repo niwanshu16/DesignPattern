@@ -1,13 +1,10 @@
 package DesignPattern.IteratorPattern.Menu;
 
 import java.util.List;
-
-import DesignPattern.IteratorPattern.Iterator.Iterator;
-import DesignPattern.IteratorPattern.Iterator.PancakeHouseMenuIterator;
-
 import java.util.ArrayList;
+import java.util.Iterator;
 
-public class PancakeHouseMenu {
+public class PancakeHouseMenu implements Menu{
     
     List<MenuItem> menuItems;
 
@@ -45,7 +42,7 @@ public class PancakeHouseMenu {
         return menuItems;
     }
 
-    public Iterator createIterator() {
-        return new PancakeHouseMenuIterator(menuItems);
+    public Iterator<MenuItem> createIterator() {
+        return menuItems.iterator();
     }
 }

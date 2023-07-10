@@ -1,9 +1,9 @@
 package DesignPattern.IteratorPattern.Menu;
 
 import DesignPattern.IteratorPattern.Iterator.DinerMenuIterator;
-import DesignPattern.IteratorPattern.Iterator.Iterator;
+import java.util.Iterator;
 
-public class DinerMenu {
+public class DinerMenu implements Menu {
     
     MenuItem[] menuItems;
     static final int MAX_ITEMS = 6;
@@ -49,7 +49,8 @@ public class DinerMenu {
         return menuItems;
     }
 
-    public Iterator createIterator() {
+    @Override
+    public Iterator<MenuItem> createIterator() {
         return new DinerMenuIterator(menuItems);
     }
 
