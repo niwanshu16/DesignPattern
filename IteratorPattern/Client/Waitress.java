@@ -20,16 +20,18 @@ public class Waitress {
         Iterator dinerIterator = dinerMenu.createIterator();
         Iterator pancakeIterator = pancakeHouseMenu.createIterator();
 
-        display(dinerIterator);
+        System.out.println("MENU\n-----\nBREAKFAST");
         display(pancakeIterator);
+        System.out.println("\nLUNCH");
+        display(dinerIterator);
     }
 
     public void display(Iterator iterator) {
         while(iterator.hasNext()) {
             MenuItem item = iterator.next();
-            System.out.println(item.getName() + ", ");
-            System.out.println(item.getPrice() + ", ");
-            System.out.println(item.getDescription() +"\n\n");
+            System.out.print(item.getName() + ", ");
+            System.out.print(item.getPrice() + " -- ");
+            System.out.println(item.getDescription());
         }
     }
 }
