@@ -2,13 +2,22 @@ package DesignPattern.CompositePattern.Menu;
 
 public class MenuTestDrive {
     
+    static MenuComponent allMenus = new Menu("ALL MENUS", "All Menus Combined");
     public static void main(String []args) {
+
+        populateMenu();
+        Waitress waitress = new Waitress(allMenus);
+        waitress.printMenu();
+
+    }
+
+    public static void populateMenu() {
         MenuComponent pancakeHouseMenu = new Menu("PANCAKE HOUSE MENU ", "Breakfast");
         MenuComponent dinerMenu = new Menu("DINER MENU", "Lunch");
         MenuComponent cafeMenu = new Menu("CAFE MENU", "Dinner");
         MenuComponent dessartMenu = new Menu("DESSART MENU", "Dessert of course");
 
-        MenuComponent allMenus = new Menu("ALL MENUS", "All Menus Combined");
+        
 
         allMenus.add(pancakeHouseMenu);
         allMenus.add(dinerMenu);
@@ -81,9 +90,6 @@ public class MenuTestDrive {
             "Waffles with your choice of blueberries and strawberries",
             true,
             3.59));
-            
-        Waitress waitress = new Waitress(allMenus);
-        waitress.printMenu();
     }
 
 }
