@@ -1,4 +1,4 @@
-package DesignPattern.IteratorPattern.Menu;
+package DesignPattern.IteratorPattern.Menus.Menu;
 
 import java.util.List;
 import java.util.ArrayList;

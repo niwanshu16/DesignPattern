@@ -1,8 +1,9 @@
-package DesignPattern.IteratorPattern.Client;
+package DesignPattern.IteratorPattern.Menus.Client;
 
-import DesignPattern.IteratorPattern.Menu.Menu;
-import DesignPattern.IteratorPattern.Menu.MenuItem;
 import java.util.Iterator;
+
+import DesignPattern.IteratorPattern.Menus.Menu.Menu;
+import DesignPattern.IteratorPattern.Menus.Menu.MenuItem;
 
 //Client
 public class Waitress {

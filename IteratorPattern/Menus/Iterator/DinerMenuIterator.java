@@ -1,7 +1,8 @@
-package DesignPattern.IteratorPattern.Iterator;
+package DesignPattern.IteratorPattern.Menus.Iterator;
 
-import DesignPattern.IteratorPattern.Menu.MenuItem;
 import java.util.Iterator;
+
+import DesignPattern.IteratorPattern.Menus.Menu.MenuItem;
 
 public class DinerMenuIterator implements Iterator<MenuItem> {
     

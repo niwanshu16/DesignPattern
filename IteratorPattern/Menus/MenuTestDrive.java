@@ -1,9 +1,9 @@
-package DesignPattern.IteratorPattern;
+package DesignPattern.IteratorPattern.Menus;
 
-import DesignPattern.IteratorPattern.Client.Waitress;
-import DesignPattern.IteratorPattern.Menu.CafeMenu;
-import DesignPattern.IteratorPattern.Menu.DinerMenu;
-import DesignPattern.IteratorPattern.Menu.PancakeHouseMenu;
+import DesignPattern.IteratorPattern.Menus.Client.Waitress;
+import DesignPattern.IteratorPattern.Menus.Menu.CafeMenu;
+import DesignPattern.IteratorPattern.Menus.Menu.DinerMenu;
+import DesignPattern.IteratorPattern.Menus.Menu.PancakeHouseMenu;
 
 public class MenuTestDrive {
     

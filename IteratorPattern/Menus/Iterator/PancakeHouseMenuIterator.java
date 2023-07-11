@@ -1,8 +1,8 @@
-package DesignPattern.IteratorPattern.Iterator;
+package DesignPattern.IteratorPattern.Menus.Iterator;
 
 import java.util.List;
 
-import DesignPattern.IteratorPattern.Menu.MenuItem;
+import DesignPattern.IteratorPattern.Menus.Menu.MenuItem;
 
 public class PancakeHouseMenuIterator implements Iterator {
     int position;
