@@ -2,5 +2,9 @@ package DesignPattern.StatePattern.GumballMachine;
 
 public interface State {
     
-    public void noQuarter();
+    public void insertQuarter();
+    public void ejectQuarter();
+    public void turnCrank();
+    public void dispense();
+
 }
