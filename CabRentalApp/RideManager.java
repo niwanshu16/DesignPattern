@@ -32,8 +32,11 @@ public class RideManager {
     }
 
     public static RideManager getInstance() {
-        if(rideManager == null)
-            rideManager = new RideManager();
+        if(rideManager == null) {
+            synchronized(RideManager.class) {
+                rideManager = new RideManager();
+            }
+        }
         return rideManager;
     }
     public void offerRide(String name, String source, int seats, String v, String destination) {
