@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class RideManager {
     
-    HashMap<User,RideDetail> drivers;
+    private HashMap<User,RideDetail> drivers;
     HashMap<String,List<RideDetail>> path;
     UserManager userManager;
     SearchManager searchManager;
@@ -23,6 +23,12 @@ public class RideManager {
         searchManager = SearchManager.getInstance();
         rideOffered = new HashMap<>();
         rideTaken = new HashMap<>();
+    }
+
+    public RideDetail getRideDetail(User user) {
+        if(drivers.containsKey(user))
+            return drivers.get(user);
+        return null;
     }
 
     public static RideManager getInstance() {
@@ -109,7 +115,7 @@ public class RideManager {
         List<RideDetail> rideDetails = path.get(source);
         System.out.println("ENDING RIDE ");
         rideDetail.showRideDetail();
-        
+
         rideDetails.remove(rideDetail);
 
         if(rideDetails.size() > 0) 

@@ -24,7 +24,7 @@ public class TestDrive {
         application.addUser("Rahul", 'M', 35); 
         application.addVehicle("Rahul", "XUV", "KA-05-1234");
 
-        //application.showAllUsers();
+        application.showAllUsers();
 
         application.offerRide("Rohan","Hyderabad",1,"Swift","Bangalore");
         application.offerRide("Shipra","Bangalore",2,"Polo","Mysore");

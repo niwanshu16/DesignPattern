@@ -5,11 +5,11 @@ import java.util.Map;
 
 public class UserManager {
     
-    HashMap<String,User> users;
-    HashMap<User,Vehicle> drivers;
+    private HashMap<String,User> users;
+    private HashMap<User,Vehicle> drivers;
     static UserManager userManager;
 
-    public UserManager() {
+    private UserManager() {
         users = new HashMap<>();
         drivers = new HashMap<>();
     }
@@ -26,8 +26,11 @@ public class UserManager {
     }
 
     public static UserManager getInstance() {
-        if(userManager == null) 
-            userManager = new UserManager();
+        if(userManager == null) {
+            synchronized(UserManager.class) {
+                userManager = new UserManager();
+            }
+        }
         return userManager;
     }
 
