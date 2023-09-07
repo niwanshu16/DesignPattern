@@ -24,12 +24,13 @@ public class TestDrive {
 
         task2.updateAssignee(user2);
         task1.updateAssignee(user2);
+        task3.updateAssignee(user1);
 
         user1.showAllTasks();
         user2.showAllTasks();
 
         task1.updateStatus(Status.InDesign);
-        //task1.showTaskDetails();
+        task1.showTaskDetails();
 
         sprint.addTask(task1);
         sprint.addTask(task2);
