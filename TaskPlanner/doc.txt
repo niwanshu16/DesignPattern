@@ -1,0 +1,34 @@
+There are 3 types of tasks, like bug, story, feature
+
+Each task can have 
+    1. Status
+    2. Assignee
+
+Sprint : Collection of tasks
+    1. Add a task to a Sprint
+    2. Move a task from one sprint to other.
+
+User : 
+    1. Create a Sprint
+    2. Add task to a sprint
+    3. Move a task from one spring to other.
+    4. Change the status and assignee of a task.
+
+Task : 
+    1. Status
+    2. Assignee 
+    3. Name 
+    4. Story points
+
+Status : Enum
+    1. Created
+    2. In Design
+    3. Developer
+    4. Code Review.
+    5. Ready for testing
+    6. In testing
+    7. Completed
+
+User :
+    1. userName 
+    2.  
