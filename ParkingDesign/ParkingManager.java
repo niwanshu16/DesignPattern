@@ -2,69 +2,69 @@ package DesignPattern.ParkingDesign;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.HashMap;
 
 public class ParkingManager {
     
     private volatile static ParkingManager uniqueInstance = null;
     String parkingID;
     int maxFloors;
-    HashMap<Vehicle,Slot> parkedVehicle;
     List<Slot> bookedSlots;
-    int availableSlots, totalSlots;
+    
     List<Floor> allFloors;
 
-    private ParkingManager(String parkingID, int maxFloors) {
+    private ParkingManager(String parkingID, int maxFloors, int numSlots) {
         this.parkingID = parkingID;
         this.maxFloors = maxFloors;
         allFloors = new ArrayList<>();
-        parkedVehicle = new HashMap<>();
         bookedSlots = new ArrayList<>();
-        totalSlots = maxFloors*5;
-        availableSlots = maxFloors*5;
+        
         for(int i=1;i<=maxFloors;i++) {
-            Floor floor = new Floor(5,parkingID + "_" + i);
+            Floor floor = new Floor(numSlots,parkingID + "_" + i);
             allFloors.add(floor);
         }
     }
 
-    public static ParkingManager getInstance(String parkingID, int maxFloors) {
+    public static ParkingManager getInstance(String parkingID, int maxFloors, int numSlots) {
 
         if(uniqueInstance == null) {
-            uniqueInstance = new ParkingManager(parkingID, maxFloors);
+            uniqueInstance = new ParkingManager(parkingID, maxFloors, numSlots);
         } 
         return uniqueInstance;
     }
 
-    public Slot parkVehicle(Vehicle vehicle) {
+    public Ticket parkVehicle(Vehicle vehicle) {
         Slot slot = null;
 
         for(Floor floor : allFloors) {
             slot = floor.getAvailableSlot(vehicle.vehicleType);
             if(slot != null) {
+                Ticket ticket = new Ticket(slot);
                 slot.setStatus(SlotStatus.OCCUPIED);
-                parkedVehicle.put(vehicle,slot);
-                availableSlots -= 1;
                 bookedSlots.add(slot);
-                return slot;
+                return ticket;
             }
         }
-        return slot;
+        return null;
     }
 
-    public int freeSlots() {
-        return availableSlots;
+    public void freeSlots(VehicleType vehicleType) {
+        
+        for(Floor floor : allFloors) {
+            floor.freeSlots(vehicleType);
+        }
     }
 
-    public int parkedSlots() {
-        return totalSlots - availableSlots;
+    public void parkedSlots(VehicleType type) {
+        
+        for(Floor floor : allFloors) {
+            floor.parkedSlots(type);
+        }
+
     }
 
-    public Slot unparkVehicle(Vehicle vehicle) {
-        Slot slot = parkedVehicle.get(vehicle);
-        parkedVehicle.remove(vehicle);
+    public Slot unparkVehicle(Ticket ticket) {
+        Slot slot = ticket.getSlot();
         slot.setStatus(SlotStatus.VACANT);
-        availableSlots++;
         bookedSlots.remove(slot);
         return slot;
     }

@@ -5,32 +5,44 @@ public class ParkingApplication {
     ParkingManager parkingManager;
     String parkingID;
     int maxFloors;
-    public ParkingApplication() {
-        parkingID = "PAR";
-        maxFloors = 5;
-        parkingManager = ParkingManager.getInstance(parkingID,maxFloors);
-    }
+    int numSlots;
 
-    public void parkVehicle(Vehicle vehicle) {
-        Slot slot =  parkingManager.parkVehicle(vehicle);
-        if(slot != null)
-            slot.slotDetail();
-        else
-            System.out.println("No Available Slot");
+    
+    public ParkingApplication(int numFloors, int numSlots, String parkingID) {
+        this.maxFloors = numFloors;
+        this.numSlots = numSlots;
+        this.parkingID = parkingID;
+        parkingManager = ParkingManager.getInstance(parkingID, numFloors, numSlots);
     }
     
-    public void availableSlots() {
-        int res =  parkingManager.freeSlots();
-        System.out.println("Available Slots " + res);
+
+    public Ticket parkVehicle(Vehicle vehicle) {
+        Ticket ticket =  parkingManager.parkVehicle(vehicle);
+        
+        if(ticket == null)
+            System.out.println("No Available Slot");
+        else {
+            System.out.println("-----------Parking Vehicle --------------");
+            System.out.println(vehicle.showDetail());
+            ticket.getSlot().slotDetail();
+            System.out.println("-----------------------------------------");
+        }
+
+        return ticket;
+    }
+    
+    public void freeSlots(VehicleType vehicleType) {
+        parkingManager.freeSlots(vehicleType);
     }
 
-    public void parkedSlots() {
-        int res =  parkingManager.parkedSlots();
-        System.out.println("Parked Slots  " + res);
+    public void parkedSlots(VehicleType vehicleType) {
+        parkingManager.parkedSlots(vehicleType);
     }
 
-    public void unparkVehicle(Vehicle vehicle) {
-        Slot slot = parkingManager.unparkVehicle(vehicle);
+    public void unparkVehicle(Ticket ticket) {
+        System.out.println("-----------Unpark Vehicle --------------");
+        Slot slot = parkingManager.unparkVehicle(ticket);
         slot.slotDetail();
+        System.out.println("-----------------------------------------");
     }
 }

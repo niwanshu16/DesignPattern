@@ -25,7 +25,6 @@ public class Slot {
     }
 
     public void slotDetail() {
-        System.out.println("-------------------------------");
         System.out.println("SLOT ID " + slotID + " Slot Status " + slotStatus + " Slot Type " + slotType) ;
     }
 }

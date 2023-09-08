@@ -14,4 +14,7 @@ public class Vehicle {
         System.out.println("Vehicle Type " + vehicleType + "Registration Number " + regNo);
     }
     
+    public String showDetail() {
+        return vehicleType + "---->" + regNo;
+    }
 }
