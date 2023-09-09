@@ -17,7 +17,6 @@ public class ParkingManager {
         this.maxFloors = maxFloors;
         allFloors = new ArrayList<>();
         bookedSlots = new ArrayList<>();
-        
         for(int i=1;i<=maxFloors;i++) {
             Floor floor = new Floor(numSlots,parkingID + "_" + i);
             allFloors.add(floor);
@@ -27,7 +26,9 @@ public class ParkingManager {
     public static ParkingManager getInstance(String parkingID, int maxFloors, int numSlots) {
 
         if(uniqueInstance == null) {
-            uniqueInstance = new ParkingManager(parkingID, maxFloors, numSlots);
+            synchronized(ParkingManager.class) {
+                uniqueInstance = new ParkingManager(parkingID, maxFloors, numSlots);
+            }
         } 
         return uniqueInstance;
     }
@@ -38,7 +39,8 @@ public class ParkingManager {
         for(Floor floor : allFloors) {
             slot = floor.getAvailableSlot(vehicle.vehicleType);
             if(slot != null) {
-                Ticket ticket = new Ticket(slot);
+                Ticket ticket = new Ticket();
+                ticket.setSlot(slot);
                 slot.setStatus(SlotStatus.OCCUPIED);
                 bookedSlots.add(slot);
                 return ticket;
