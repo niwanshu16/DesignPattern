@@ -1,6 +1,15 @@
 package DesignPattern.ParkingDesign;
 
-public class TestDrive {
+import DesignPattern.ParkingDesign.PaymentStrategy.CreditCardPaymentStrategy;
+import DesignPattern.ParkingDesign.PaymentStrategy.PaymentStrategy;
+import DesignPattern.ParkingDesign.PaymentStrategy.UPIPaymentStrategy;
+import DesignPattern.ParkingDesign.TicketService.CleaningServicePriceCalculation;
+import DesignPattern.ParkingDesign.TicketService.PressureCheckServicePriceCalculation;
+import DesignPattern.ParkingDesign.TicketService.Ticket;
+import DesignPattern.ParkingDesign.Vehicle.Vehicle;
+import DesignPattern.ParkingDesign.Vehicle.VehicleType;
+
+public class Client {
     public static void main(String []args) {
         ParkingApplication application = new ParkingApplication(2,5,"PAR1234");
         

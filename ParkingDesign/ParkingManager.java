@@ -3,6 +3,13 @@ package DesignPattern.ParkingDesign;
 import java.util.ArrayList;
 import java.util.List;
 
+import DesignPattern.ParkingDesign.Parking.Floor;
+import DesignPattern.ParkingDesign.Parking.Slot;
+import DesignPattern.ParkingDesign.Parking.SlotStatus;
+import DesignPattern.ParkingDesign.TicketService.Ticket;
+import DesignPattern.ParkingDesign.Vehicle.Vehicle;
+import DesignPattern.ParkingDesign.Vehicle.VehicleType;
+
 public class ParkingManager {
     
     private volatile static ParkingManager uniqueInstance = null;
@@ -37,7 +44,7 @@ public class ParkingManager {
         Slot slot = null;
 
         for(Floor floor : allFloors) {
-            slot = floor.getAvailableSlot(vehicle.vehicleType);
+            slot = floor.getAvailableSlot(vehicle.getVehicleType());
             if(slot != null) {
                 Ticket ticket = new Ticket();
                 ticket.setSlot(slot);

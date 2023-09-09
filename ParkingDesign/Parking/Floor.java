@@ -1,6 +1,9 @@
-package DesignPattern.ParkingDesign;
+package DesignPattern.ParkingDesign.Parking;
 
 import java.util.List;
+
+import DesignPattern.ParkingDesign.Vehicle.VehicleType;
+
 import java.util.ArrayList;
 
 public class Floor {
@@ -37,7 +40,7 @@ public class Floor {
     public Slot getAvailableSlot(VehicleType vehicleType) {
         
         for(Slot slot : allSlots) {
-            if(slot.getStatus() == SlotStatus.VACANT && slot.slotType == vehicleType) {
+            if(slot.getStatus() == SlotStatus.VACANT && slot.getSlotType() == vehicleType) {
                 return slot;
             }
         }
@@ -50,7 +53,7 @@ public class Floor {
         int res = 0;
 
         for(Slot slot : allSlots) {
-            if(slot.slotType == vehicleType && slot.slotStatus == SlotStatus.VACANT)
+            if(slot.getSlotType() == vehicleType && slot.getStatus() == SlotStatus.VACANT)
                 res++;
         }
         System.out.println("Vacant Slots " + vehicleType + " at Floor " + floorID + " is : " + res);
@@ -60,7 +63,7 @@ public class Floor {
     public void parkedSlots(VehicleType vehicleType) {
         int res = 0;
         for(Slot slot : allSlots) {
-            if(slot.slotType == vehicleType && slot.slotStatus == SlotStatus.OCCUPIED)
+            if(slot.getSlotType() == vehicleType && slot.getStatus() == SlotStatus.OCCUPIED)
                 res++;
         }
         System.out.println("Occupied Slots " + vehicleType + " at Floor " + floorID + " is : " + res);

@@ -1,4 +1,4 @@
-package DesignPattern.ParkingDesign;
+package DesignPattern.ParkingDesign.PaymentStrategy;
 
 public abstract class PaymentStrategy {
     

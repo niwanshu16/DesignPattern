@@ -1,4 +1,6 @@
-package DesignPattern.ParkingDesign;
+package DesignPattern.ParkingDesign.Parking;
+
+import DesignPattern.ParkingDesign.Vehicle.VehicleType;
 
 public class Slot {
     

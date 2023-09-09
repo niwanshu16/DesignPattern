@@ -1,4 +1,4 @@
-package DesignPattern.ParkingDesign;
+package DesignPattern.ParkingDesign.Vehicle;
 
 public class Vehicle {
 
@@ -16,5 +16,9 @@ public class Vehicle {
     
     public String showDetail() {
         return vehicleType + "---->" + regNo;
+    }
+
+    public VehicleType getVehicleType() {
+        return vehicleType;
     }
 }

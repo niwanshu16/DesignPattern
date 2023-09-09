@@ -1,4 +1,6 @@
-package DesignPattern.ParkingDesign;
+package DesignPattern.ParkingDesign.TicketService;
+
+import DesignPattern.ParkingDesign.Parking.Slot;
 
 public class Ticket {
     
@@ -18,7 +20,7 @@ public class Ticket {
     }
 
     public double getCost() {
-        switch(slot.slotType) {
+        switch(slot.getSlotType()) {
             case TRUCK : return 100.0;
             case BIKE : return 30.0;
             case CAR : return 60.0;

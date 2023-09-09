@@ -1,4 +1,6 @@
-package DesignPattern.ParkingDesign;
+package DesignPattern.ParkingDesign.PaymentStrategy;
+
+import DesignPattern.ParkingDesign.TicketService.Ticket;
 
 public class CreditCardPaymentStrategy extends PaymentStrategy{
     Ticket ticket;

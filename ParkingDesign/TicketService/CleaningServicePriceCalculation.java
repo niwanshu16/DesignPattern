@@ -1,4 +1,4 @@
-package DesignPattern.ParkingDesign;
+package DesignPattern.ParkingDesign.TicketService;
 
 public class CleaningServicePriceCalculation extends Service {
     
@@ -18,7 +18,7 @@ public class CleaningServicePriceCalculation extends Service {
     }
 
     public double findCost() {
-        switch(slot.slotType) {
+        switch(slot.getSlotType()) {
             case TRUCK : return 2000.0;
             case BIKE : return 500.0;
             case CAR : return 1200.0;

@@ -1,4 +1,4 @@
-package DesignPattern.ParkingDesign;
+package DesignPattern.ParkingDesign.Vehicle;
 
 public enum VehicleType {
     TRUCK,

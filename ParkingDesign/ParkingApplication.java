@@ -1,5 +1,10 @@
 package DesignPattern.ParkingDesign;
 
+import DesignPattern.ParkingDesign.Parking.Slot;
+import DesignPattern.ParkingDesign.TicketService.Ticket;
+import DesignPattern.ParkingDesign.Vehicle.Vehicle;
+import DesignPattern.ParkingDesign.Vehicle.VehicleType;
+
 public class ParkingApplication {
     
     ParkingManager parkingManager;

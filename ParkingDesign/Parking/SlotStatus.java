@@ -1,4 +1,4 @@
-package DesignPattern.ParkingDesign;
+package DesignPattern.ParkingDesign.Parking;
 
 public enum SlotStatus {
     VACANT,

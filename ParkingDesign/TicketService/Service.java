@@ -1,4 +1,6 @@
-package DesignPattern.ParkingDesign;
+package DesignPattern.ParkingDesign.TicketService;
+
+import DesignPattern.ParkingDesign.Parking.Slot;
 
 public abstract class Service extends Ticket {
     String description;
