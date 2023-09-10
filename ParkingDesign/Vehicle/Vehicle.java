@@ -10,8 +10,8 @@ public class Vehicle {
         this.vehicleType = vehicleType;
     }
 
-    public void showVehicle() {
-        System.out.println("Vehicle Type " + vehicleType + "Registration Number " + regNo);
+    public String showVehicle() {
+        return "Vehicle Type " + vehicleType + " Registration Number " + regNo;
     }
     
     public String showDetail() {
