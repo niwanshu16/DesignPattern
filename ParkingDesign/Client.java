@@ -33,9 +33,6 @@ public class Client {
 
         remote.execute(parkedSlots, truck);
 
-        //remote.setCommand(unparkVehicle, truck);
-        //remote.buttonWasPressed();
-
         remote.execute(freeSlots, truck);
 
         remote.execute(unparkVehicle, car);
