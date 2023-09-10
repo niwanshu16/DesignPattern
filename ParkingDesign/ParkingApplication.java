@@ -1,7 +1,11 @@
 package DesignPattern.ParkingDesign;
 
 import DesignPattern.ParkingDesign.Parking.Slot;
+import DesignPattern.ParkingDesign.PaymentStrategy.CreditCardPaymentStrategy;
+import DesignPattern.ParkingDesign.PaymentStrategy.PaymentStrategy;
+import DesignPattern.ParkingDesign.PaymentStrategy.UPIPaymentStrategy;
 import DesignPattern.ParkingDesign.TicketService.CleaningServicePriceCalculation;
+import DesignPattern.ParkingDesign.TicketService.PressureCheckServicePriceCalculation;
 import DesignPattern.ParkingDesign.TicketService.Ticket;
 import DesignPattern.ParkingDesign.Vehicle.Vehicle;
 import DesignPattern.ParkingDesign.Vehicle.VehicleType;
@@ -60,12 +64,32 @@ public class ParkingApplication {
     public void findCost(Vehicle vehicle) {
         Ticket ticket = ticketMapping.get(vehicle);
 
-        System.out.println("Total cost " + vehicle.showVehicle() + " Amount: " + ticket.getCost());
+        System.out.println("Total cost " + vehicle.showVehicle());
+        System.out.println(" Description : " + ticket.getDescription() +   " Amount: " + ticket.getCost());
     }
 
     public void cleaningService(Vehicle vehicle) {
         Ticket ticket = ticketMapping.get(vehicle);
         ticket = new CleaningServicePriceCalculation(ticket);
         ticketMapping.put(vehicle,ticket);
+    }
+
+
+    public void pressureCheckService(Vehicle vehicle) {
+        Ticket ticket = ticketMapping.get(vehicle);
+        ticket = new PressureCheckServicePriceCalculation(ticket);
+        ticketMapping.put(vehicle,ticket);
+    }
+
+    public void creditCardPayment(Vehicle vehicle) {
+        Ticket ticket = ticketMapping.get(vehicle);
+        PaymentStrategy paymentStrategy = new CreditCardPaymentStrategy(ticket);
+        paymentStrategy.makePayment();
+    }
+
+    public void upiCardPayment(Vehicle vehicle) {
+        Ticket ticket = ticketMapping.get(vehicle);
+        PaymentStrategy paymentStrategy = new UPIPaymentStrategy(ticket);
+        paymentStrategy.makePayment();
     }
 }

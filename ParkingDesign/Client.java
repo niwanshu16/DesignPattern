@@ -3,10 +3,13 @@ package DesignPattern.ParkingDesign;
 import DesignPattern.ParkingDesign.Command.CleaningServiceCommand;
 import DesignPattern.ParkingDesign.Command.Command;
 import DesignPattern.ParkingDesign.Command.CostCalculationCommand;
+import DesignPattern.ParkingDesign.Command.CreditCardPaymentCommand;
 import DesignPattern.ParkingDesign.Command.FreeSlotsCommand;
 import DesignPattern.ParkingDesign.Command.ParkVehicleCommand;
 import DesignPattern.ParkingDesign.Command.ParkedSlotsCommand;
+import DesignPattern.ParkingDesign.Command.PressureCheckServiceCommand;
 import DesignPattern.ParkingDesign.Command.Remote;
+import DesignPattern.ParkingDesign.Command.UPIPaymentCommand;
 import DesignPattern.ParkingDesign.Command.UnparkVehicleCommand;
 import DesignPattern.ParkingDesign.Vehicle.Vehicle;
 import DesignPattern.ParkingDesign.Vehicle.VehicleType;
@@ -26,24 +29,15 @@ public class Client {
         Command parkedSlots = new ParkedSlotsCommand(application);
         Command findCostCommand = new CostCalculationCommand(application);
         Command cleaningServiceCommand = new CleaningServiceCommand(application);
+        Command pressureCheckService = new PressureCheckServiceCommand(application);
+        Command creditCardCommand = new CreditCardPaymentCommand(application);
+        Command upiPaymentCommand = new UPIPaymentCommand(application);
 
-        remote.execute(parkVehicle, truck);
-
-        remote.execute(parkVehicle, car);
-
-        remote.execute(parkedSlots, truck);
-
-        remote.execute(freeSlots, truck);
-
-        remote.execute(unparkVehicle, car);
-
-        remote.execute(freeSlots, car);
-
-        remote.execute(findCostCommand,truck);
-
-        remote.execute(cleaningServiceCommand, truck);
-
-        remote.execute(findCostCommand, truck);
+        Command commands[] = {parkVehicle,freeSlots,parkedSlots,findCostCommand,cleaningServiceCommand,pressureCheckService,creditCardCommand,upiPaymentCommand,unparkVehicle};
         
+        for(Command command : commands) {
+            remote.execute(command,truck);
+            remote.execute(command, car);
+        }
     }
 }
