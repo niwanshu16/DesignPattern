@@ -7,9 +7,8 @@ public class Client {
         RateLimiter rateLimiter = new RateLimiter();
         try {
             for(int i=0;i<10;i++) {
-                
                 System.out.println(rateLimiter.grantAccess(user));
-                Thread.sleep(100);
+                Thread.sleep(200);
             }
         }
         catch(Exception e) {

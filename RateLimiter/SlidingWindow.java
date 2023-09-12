@@ -5,14 +5,12 @@ import java.util.concurrent.ConcurrentLinkedDeque;
 
 public class SlidingWindow {
     
-    Queue<Long> queue;
-    int maximumRequestAllowed;
-    int timeAllowedInSeconds;
-    long timeAllowedInMilliSeconds;
+    private Queue<Long> queue;
+    private int maximumRequestAllowed;
+    private long timeAllowedInMilliSeconds;
 
     public SlidingWindow(int maximumRequestAllowed, int timeAllowedInSeconds) {
         this.maximumRequestAllowed = maximumRequestAllowed;
-        this.timeAllowedInSeconds = timeAllowedInSeconds;
         this.timeAllowedInMilliSeconds = timeAllowedInSeconds*1000;
         queue = new ConcurrentLinkedDeque<>();
     }
