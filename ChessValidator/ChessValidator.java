@@ -2,6 +2,7 @@ package DesignPattern.ChessValidator;
 
 import DesignPattern.ChessValidator.Actors.Actor;
 import DesignPattern.ChessValidator.Actors.Bishop;
+import DesignPattern.ChessValidator.Actors.King;
 import DesignPattern.ChessValidator.Actors.Knight;
 import DesignPattern.ChessValidator.Actors.Pawn;
 import DesignPattern.ChessValidator.Actors.Queen;
@@ -24,8 +25,16 @@ public class ChessValidator {
         assignPawns();
         assignRook();
         assignQueen();
+        assignKing();
     }
 
+    private void assignKing() {
+        Actor bKing = new King("BH",false);
+        Actor wKing = new King("WH",true);
+
+        board[0][3].setActor(wKing);
+        board[7][4].setActor(bKing);
+    }
     private void assignQueen() {
         Actor bQueen = new Queen("BQ",false);
         Actor wQueen = new Queen("WQ",true);
