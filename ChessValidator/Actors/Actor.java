@@ -10,6 +10,8 @@ public abstract class Actor {
     String name;
     Boolean white; 
     List<Moves> validMoves;
+    private Boolean isKing = false;
+    private Boolean pawn = false;
 
     public String getName() {
         return name;
@@ -19,16 +21,33 @@ public abstract class Actor {
         return white;
     }
 
-    public Boolean makeMove(Position[][] board, Position cPosition, Position dePosition) {
+    public Integer makeMove(Position[][] board, Position cPosition, Position dePosition) {
         for(Moves move : validMoves) {
             if(move.validMoves(board, cPosition, dePosition)) {
+                if(!dePosition.isEmpty()) {
+                    if(dePosition.getActor().isKing) {
+                        return 2;
+                    }
+                }
                 dePosition.vacantPosition();
                 dePosition.setActor(cPosition.getActor());
                 cPosition.vacantPosition();
-                return true;
+                return 1;
             }
         }
-        return false;
+        return 0;
+    }
+
+    public Boolean isPawn() {
+        return pawn;
+    }
+
+    public void setPawn() {
+        pawn = true;
+    }
+
+    public void setKing() {
+        isKing = true;
     }
     public abstract void populateMoves();
 

@@ -1,6 +1,6 @@
 package DesignPattern.ChessValidator.Actors;
 
-import DesignPattern.ChessValidator.Moves.RookMoves;
+import DesignPattern.ChessValidator.Moves.KnightMoves;
 
 import java.util.ArrayList;
 
@@ -15,7 +15,7 @@ public class Knight extends Actor {
 
     @Override
     public void populateMoves() {
-        validMoves.add(new RookMoves());
+        validMoves.add(new KnightMoves());
     }
     
 }

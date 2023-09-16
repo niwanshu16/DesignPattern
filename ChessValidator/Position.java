@@ -5,6 +5,7 @@ import DesignPattern.ChessValidator.Actors.Actor;
 public class Position {
     
     private int x, y;
+    String name;
     Actor pawn;
     Boolean empty;
 
@@ -12,6 +13,10 @@ public class Position {
         this.x = x;
         this.y = y;
         empty = true;
+    }
+
+    public Position(String a) {
+        this.name = a;
     }
 
     public Boolean isEmpty() {
@@ -42,5 +47,9 @@ public class Position {
 
     public void setEmpty(Boolean empty) {
         this.empty = empty;
+    }
+
+    public String getName() {
+        return name;
     }
 }

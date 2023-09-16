@@ -10,7 +10,6 @@ public class KnightMoves extends Moves {
     }
 
     private Boolean validate(Position cPosition, Position dePosition) {
-        
         for(int a : new int[]{-2,2}) {
             for(int b : new int[]{-1,1}) {
                 if((cPosition.getX() + a == dePosition.getX() && cPosition.getY() + b == dePosition.getY()) ||

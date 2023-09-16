@@ -3,17 +3,6 @@ package DesignPattern.ChessValidator.Moves;
 import DesignPattern.ChessValidator.Position;
 
 public class BishopMoves extends Moves {
-    /**
-     *    0 1 2 3 4 5 6 7
-     * 0
-     * 1
-     * 2
-     * 3
-     * 4      
-     * 5
-     * 6
-     * 7
-     */
     
     @Override
     public Boolean validMoves(Position[][] board, Position cPosition, Position dePosition) {
@@ -35,9 +24,8 @@ public class BishopMoves extends Moves {
         while(true) {
             cx += x;
             cy += y;
-            if(cx < 0 || cy < 0 || cx >=8 || cy >= 8)
+            if(isInvalidRange(cx, cy))
                 break;
-            System.out.println(cx + " " + cy);
             if(cx == dePosition.getX() && cy == dePosition.getY()) {
                 return true;
             }

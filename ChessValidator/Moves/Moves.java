@@ -10,7 +10,7 @@ public abstract class Moves {
     }
     
     public Boolean isInvalidRange(Integer x, Integer y) {
-        return x < 0 || x >= 8 || y < 0 || y >= 8;
+        return x <= 0 || x > 8 || y <= 0 || y > 8;
     }
 
     public abstract Boolean validMoves(Position[][] board, Position cPosition, Position dePosition);
