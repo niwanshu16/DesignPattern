@@ -6,7 +6,7 @@ public class Position {
     
     private int x, y;
     String name;
-    Actor pawn;
+    Actor actor;
     Boolean empty;
 
     public Position(int x, int y) {
@@ -23,13 +23,13 @@ public class Position {
         return empty;
     }
 
-    public void setActor(Actor pawn)  {
-        this.pawn = pawn;
+    public void setActor(Actor actor)  {
+        this.actor = actor;
         empty = false;
     }
 
     public void vacantPosition() {
-        pawn = null;
+        actor = null;
         empty = true;
     }
 
@@ -42,7 +42,7 @@ public class Position {
     }
 
     public Actor getActor() {
-        return pawn;
+        return actor;
     }
 
     public void setEmpty(Boolean empty) {
