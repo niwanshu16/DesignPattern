@@ -1,4 +1,4 @@
-package DesignPattern.OrderProcessing;
+package DesignPattern.OrderProcessing.Order;
 
 public enum OrderStatus {
     CREATED,

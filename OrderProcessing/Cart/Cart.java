@@ -1,7 +1,9 @@
-package DesignPattern.OrderProcessing;
+package DesignPattern.OrderProcessing.Cart;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import DesignPattern.OrderProcessing.Product.Product;
 
 public class Cart {
     

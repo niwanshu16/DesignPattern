@@ -2,6 +2,13 @@ package DesignPattern.OrderProcessing;
 
 import java.util.UUID;
 
+import DesignPattern.OrderProcessing.Cart.Cart;
+import DesignPattern.OrderProcessing.Cart.CartItem;
+import DesignPattern.OrderProcessing.Inventory.Inventory;
+import DesignPattern.OrderProcessing.Order.Order;
+import DesignPattern.OrderProcessing.Order.OrderManager;
+import DesignPattern.OrderProcessing.Product.Product;
+
 public class User {
     
     private String userID;

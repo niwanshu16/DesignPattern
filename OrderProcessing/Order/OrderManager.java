@@ -1,4 +1,9 @@
-package DesignPattern.OrderProcessing;
+package DesignPattern.OrderProcessing.Order;
+
+import DesignPattern.OrderProcessing.Cart.Cart;
+import DesignPattern.OrderProcessing.Cart.CartItem;
+import DesignPattern.OrderProcessing.Inventory.Inventory;
+import DesignPattern.OrderProcessing.Product.Product;
 
 public class OrderManager {
     

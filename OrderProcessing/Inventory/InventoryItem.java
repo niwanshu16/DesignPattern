@@ -1,4 +1,7 @@
-package DesignPattern.OrderProcessing;
+package DesignPattern.OrderProcessing.Inventory;
+
+import DesignPattern.OrderProcessing.Product.Product;
+import DesignPattern.OrderProcessing.Product.ProductStatus;
 
 public class InventoryItem {
     

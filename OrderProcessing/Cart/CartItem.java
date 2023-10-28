@@ -1,4 +1,6 @@
-package DesignPattern.OrderProcessing;
+package DesignPattern.OrderProcessing.Cart;
+
+import DesignPattern.OrderProcessing.Product.Product;
 
 public class CartItem {
     

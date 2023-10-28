@@ -1,5 +1,8 @@
 package DesignPattern.OrderProcessing;
 
+import DesignPattern.OrderProcessing.Inventory.Inventory;
+import DesignPattern.OrderProcessing.Product.Product;
+
 public class Application {
     Inventory inventory;
 

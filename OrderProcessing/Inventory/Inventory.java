@@ -1,8 +1,10 @@
-package DesignPattern.OrderProcessing;
+package DesignPattern.OrderProcessing.Inventory;
 
 
 import java.util.HashMap;
 import java.util.Map;
+
+import DesignPattern.OrderProcessing.Product.Product;
 
 public class Inventory {
     

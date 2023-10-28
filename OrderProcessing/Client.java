@@ -2,6 +2,9 @@ package DesignPattern.OrderProcessing;
 
 import java.util.UUID;
 
+import DesignPattern.OrderProcessing.Product.Product;
+import DesignPattern.OrderProcessing.Product.ProductCategory;
+
 public class Client {
     
     public static void main(String []args) {
