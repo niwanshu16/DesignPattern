@@ -22,9 +22,9 @@ public class Client {
         User user = application.createUser();
         user.addToCart(product1, 10);
         user.showCart();
-        user.placeOrder();
+       // user.placeOrder();
 
-        application.showAllProducts();
+        //application.showAllProducts();
     }
 
     private static String getProductID() {

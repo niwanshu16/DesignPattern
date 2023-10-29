@@ -1,4 +1,4 @@
-package DesignPattern.OrderProcessing;
+package DesignPattern.OrderProcessing.Product;
 
 public class Product {
     
