@@ -101,15 +101,18 @@ public class CronParserApplication {
                     throw new InvalidCronExpression("Invalid cron expression " + field);
                 } else if (part.contains("-") && part.contains("/")) {
                     int[] rangeAndStep = parseBothRangesAndStep(part, minVal, maxVal);
-                    
+                    if(rangeAndStep[0] == -1)
+                        throw new InvalidCronExpression("Invalid Cron Expression " + part);
                     values = getValuesInRange(values,rangeAndStep[0], rangeAndStep[1],rangeAndStep[2]);
                 } else if (part.contains("-")) {
                     int[] range = parsePeriod(part, "-", minVal, maxVal);
-                    
+                    if(range[0] == -1)
+                        throw new InvalidCronExpression("Invalid Cron Expression " + part);
                     values = getValuesInRange(values,range[0], range[1],1);
                 } else if (part.contains("/")) {
                     int[] startAndStep = parsePeriod(part, "/", minVal, maxVal);
-                    
+                    if(startAndStep[0] == -1)
+                        throw new InvalidCronExpression("Invalid Cron Expression " + part);
                     values = getValuesInRange(values,startAndStep[0], maxVal, startAndStep[1]);
                 } else {
                     values.add(part);
