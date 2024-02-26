@@ -2,12 +2,21 @@ package CronParser;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 public class CronParserApplication {
 
+    HashMap<String,String> monthValue = new HashMap<>();
+
+    public CronParserApplication() {
+        monthValue.put("Jan","1");
+        monthValue.put("Feb","2");
+        monthValue.put("Mar","3");
+        monthValue.put("Apr","4");
+    }
     // Helper method to check if a string represents a valid integer
     private boolean isValidInteger(String value) {
         try {
@@ -31,6 +40,7 @@ public class CronParserApplication {
     }
 
     // Parse each part of the expression separted by the delimiter
+    //1-2 
     private int[] parsePeriod(String part, String delimiter, int minVal, int maxVal) throws InvalidCronExpression {
         String[] period = part.split(delimiter);
         int start = minVal;
@@ -40,6 +50,10 @@ public class CronParserApplication {
         }
 
         if ("-".equals(delimiter)) {
+            if(monthValue.containsKey(period[0]))
+                period[0] = monthValue.get(period[0]);
+            if(monthValue.containsKey(period[1]))
+                period[1] = monthValue.get(period[1]);
             if (!isValidInteger(period[0]) || !isValidInteger(period[1])) {
                 throw new InvalidCronExpression("Invalid Cron expression " + part);
             }
@@ -114,8 +128,12 @@ public class CronParserApplication {
                     if(startAndStep[0] == -1)
                         throw new InvalidCronExpression("Invalid Cron Expression " + part);
                     values = getValuesInRange(values,startAndStep[0], maxVal, startAndStep[1]);
-                } else {
-                    values.add(part);
+                } 
+                else {
+                    if(monthValue.containsKey(part))
+                        values.add(monthValue.get(part));
+                    else 
+                        values.add(part);
                 }
             }
         }
@@ -129,16 +147,29 @@ public class CronParserApplication {
     }
 
     // Method to parse the whole expression
+    // //minute hour dayOfMOnth month dayofWeek path
+    // "*/15 0 1,15 * 1-5 /usr/bin/find -f"
+    // */15 0 1,15 Jan-Mar Mon,Fri /usr/bin/find -f
+    // Jan-Dec
+    private String append(String[] fields) {
+        String result = "";
+        for(int i=5;i < fields.length;i++) {
+            result += fields[i];
+            if(i < fields.length-1)
+                result += " ";
+        }
+        return result;
+    }
     public Map<String, List<String>> parseCron(String cronExpression) {
         String[] fields = cronExpression.split("\\s+");
         int spaceCount = (int)cronExpression.chars().filter(x -> x == ' ').count();
         Map<String, List<String>> cronMap = new LinkedHashMap<>();
         try {
-            if (fields.length != 6) {
+            if (fields.length < 6) {
                 throw new InvalidCronExpression("Invalid number of fields in cron expression");
             }
 
-            if (spaceCount != 5) {
+            if (spaceCount < 5) {
                 throw new InvalidCronExpression("Invalid Cron Expression with Extra spaces");
             }
 
@@ -147,7 +178,7 @@ public class CronParserApplication {
             String dayOfMonth = fields[2];
             String month = fields[3];
             String dayOfWeek = fields[4];
-            String command = fields[5];
+            String command = append(fields);
 
             
             cronMap.put("minute", parseField(minute, 0, 59, 0));

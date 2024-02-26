@@ -12,7 +12,7 @@ public class Executor {
         
         CronParserApplication application = new CronParserApplication();
         boolean shouldContinue = true;
-
+        // minute hour dayofmonth month dayofweek path
         while(shouldContinue) {
             String cronExpression = scanner.nextLine();
 
